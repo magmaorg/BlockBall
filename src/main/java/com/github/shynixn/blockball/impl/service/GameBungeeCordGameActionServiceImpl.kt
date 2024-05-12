@@ -11,10 +11,9 @@ import com.google.common.io.ByteStreams
 import com.google.inject.Inject
 import kotlinx.coroutines.delay
 import org.bukkit.entity.Player
-import org.bukkit.plugin.Plugin
 
 class GameBungeeCordGameActionServiceImpl @Inject constructor(
-    private val plugin: Plugin,
+    private val plugin: BlockBallPlugin,
 ) :
     GameBungeeCordGameActionService {
     /**
@@ -29,7 +28,7 @@ class GameBungeeCordGameActionServiceImpl @Inject constructor(
 
         plugin.launch {
             delay(1000L * 20L)
-            (plugin as BlockBallPlugin).shutdownServer()
+            plugin.shutdownServer()
         }
     }
 
